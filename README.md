@@ -1,24 +1,32 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Infobot Test Task
+-----------
 
-Things you may want to cover:
+Simple application that allow create users and edit their profiles.
 
-* Ruby version
 
-* System dependencies
+System Dependencies
+-------------------
 
-* Configuration
+- Ruby 2.6.5 (install with [rbenv](https://github.com/sstephenson/rbenv))
+- Rails 6.0.2.1
+- Redis
+- PostgreSQL
 
-* Database creation
+Project Install
+-------------------
+```shell
+git clone git@github.com:omelinb/infobot.git
+bundle install
+bundle exec sidekiq
+```
 
-* Database initialization
+Database creation
+-----------------
 
-* How to run the test suite
+Create database
+```shell
+rails db:create  
+rails db:migrate  
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
