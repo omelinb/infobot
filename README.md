@@ -2,7 +2,7 @@
 Infobot Test Task
 -----------
 
-Simple application with users and profiles.
+Simple application that allow create users and edit their profiles.
 
 
 System Dependencies
