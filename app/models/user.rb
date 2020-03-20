@@ -3,4 +3,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def avatar_path
+    ActiveStorage::Blob.service.path_for(avatar.key)
+  end
 end

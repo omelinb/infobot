@@ -1,7 +1,9 @@
+require 'mini_magick'
+
 class AvatarLoaderWorker
   include Sidekiq::Worker
 
-  def perform(user, avatar)
-    puts 'It is working'
+  def perform(filepath)
+    MiniMagick::Image.new(filepath).resize '300x300'
   end
 end
