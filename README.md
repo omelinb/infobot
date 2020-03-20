@@ -16,7 +16,7 @@ System Dependencies
 Project Install
 -------------------
 ```shell
-git clone git@github.com:omelinb/shop.git
+git clone git@github.com:omelinb/infobot.git
 bundle install
 bundle exec sidekiq
 ```
