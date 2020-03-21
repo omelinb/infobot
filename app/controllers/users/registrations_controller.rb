@@ -8,7 +8,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         AvatarAttachmentService.attach(@user, account_update_params[:avatar])
 
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
       else
+        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
