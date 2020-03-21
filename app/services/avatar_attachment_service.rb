@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AvatarAttachmentService
   class << self
     def attach(user, avatar)
