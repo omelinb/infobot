@@ -1,18 +1,13 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # PUT /resource
-  def update
-    respond_to do |format|
-      if update_resource(@user, account_update_params.except(:avatar))
-        AvatarAttachmentService.attach(@user, account_update_params[:avatar])
+  after_action :crop_avatar, only: [:update]
 
-        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+  private
+
+  def crop_avatar
+    unless account_update_params[:avatar].nil?
+      AvatarCropWorker.perform_async(@user.avatar_path)
     end
   end
 end
